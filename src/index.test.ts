@@ -262,7 +262,7 @@ describe("getDocumentStoreRecords for Hedera", () => {
     net: "hedera",
     netId: "296",
     dnssec: false,
-    addr: "0x3498b8e0A00fC8c3a1f64647AC85EEE8E1baF953",
+    addr: "0x3DE43bfd3D771931E46CbBd4EDE0D3d95C85f81A",
   };
 
   test("it should work with trustlv.org", async () => {
