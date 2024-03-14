@@ -1,4 +1,4 @@
-# Open Attestation (dnsprove)
+# TradeTrust (dnsprove)
 
 A helper library to retrieve OpenAttestation DNS-TXT records from domains using Google's public DNS service.
 
