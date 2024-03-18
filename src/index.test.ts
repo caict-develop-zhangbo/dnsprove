@@ -273,6 +273,13 @@ describe("getDocumentStoreRecords for Hedera", () => {
       type: "openatts",
     },
     {
+      addr: "0xB9cf2eFcBeCdF96E6A7E46AECd79A784B41Bcf6B",
+      dnssec: false,
+      net: "hedera",
+      netId: "296",
+      type: "openatts",
+    },
+    {
       addr: "0x222B69788e2e9B7FB93a3a0fE258D4604Dc7df21",
       dnssec: false,
       net: "hedera",
