@@ -261,35 +261,42 @@ describe("getDocumentStoreRecords for Hedera", () => {
     {
       type: "openatts",
       net: "hedera",
-      netId: "296",
-      dnssec: false,
-      addr: "0x3DE43bfd3D771931E46CbBd4EDE0D3d95C85f81A",
-    },
-    {
+      netId: "295",
       addr: "0x222B69788e2e9B7FB93a3a0fE258D4604Dc7df21",
       dnssec: false,
-      net: "hedera",
-      netId: "295",
-      type: "openatts",
     },
     {
+      type: "openatts",
+      net: "hedera",
+      netId: "296",
+      addr: "0x222B69788e2e9B7FB93a3a0fE258D4604Dc7df21",
+      dnssec: false,
+    },
+    {
+      type: "openatts",
+      net: "hedera",
+      netId: "296",
+      addr: "0x3DE43bfd3D771931E46CbBd4EDE0D3d95C85f81A",
+      dnssec: false,
+    },
+    {
+      type: "openatts",
+      net: "hedera",
+      netId: "296",
       addr: "0xB9cf2eFcBeCdF96E6A7E46AECd79A784B41Bcf6B",
       dnssec: false,
-      net: "hedera",
-      netId: "296",
-      type: "openatts",
-    },
-    {
-      addr: "0x222B69788e2e9B7FB93a3a0fE258D4604Dc7df21",
-      dnssec: false,
-      net: "hedera",
-      netId: "296",
-      type: "openatts",
     },
   ];
 
   test("it should work with trustlv.org", async () => {
-    const records = await getDocumentStoreRecords("trustlv.org");
+    const records = (await getDocumentStoreRecords("trustlv.org")).sort((a, b) => {
+      if (a.netId < b.netId) return -1;
+      if (a.netId > b.netId) return 1;
+      if (a.addr < b.addr) return -1;
+      if (a.addr > b.addr) return 1;
+      return 0;
+    });
+
     expect(records).toStrictEqual(sampleDnsTextRecord);
   });
 });
