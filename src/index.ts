@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../node_modules/axios/index";
 import { OpenAttestationDNSTextRecord, OpenAttestationDNSTextRecordT } from "./records/dnsTxt";
 import { OpenAttestationDnsDidRecord, OpenAttestationDnsDidRecordT } from "./records/dnsDid";
 import { getLogger } from "./util/logger";
@@ -84,6 +84,10 @@ export const queryDns = async (domain: string, customDnsResolvers: CustomDnsReso
   let data;
 
   let i = 0;
+
+  if (domain.includes("://")) {
+    domain = domain.replace(/(^\w+:|^)\/\//, "");
+  }
 
   while (!data && i < customDnsResolvers.length) {
     try {
